@@ -1,0 +1,9 @@
+{
+  "name": "agent-phone",
+  "version": "0.1.0",
+  "description": "Voice Bridge — Claude Code calls you when it's stuck",
+  "author": { "name": "wdbetts" },
+  "repository": "https://github.com/wdbetts/agent-phone",
+  "hooks": "./hooks/hooks.json",
+  "skills": "./skills/"
+}

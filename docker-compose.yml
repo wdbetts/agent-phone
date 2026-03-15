@@ -1,0 +1,33 @@
+services:
+  server:
+    build:
+      context: .
+      target: server
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      - MODE=${MODE:-mock}
+      - MOCK_TWILIO_PORT=3001
+      - MOCK_PHONE_PORT=3002
+    volumes:
+      - ${HOME}/.agent-phone:/root/.agent-phone
+
+  mock-twilio:
+    build:
+      context: .
+      target: mock
+    ports:
+      - "3001:3001"
+      - "3002:3002"
+    environment:
+      - MOCK_TWILIO_PORT=3001
+      - MOCK_PHONE_PORT=3002
+    profiles: [dev]
+    depends_on: [server]
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate --url http://server:3000
+    profiles: [prod]
+    depends_on: [server]
