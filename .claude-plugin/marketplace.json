@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "agent-phone",
-      "source": ".",
+      "source": "./",
       "description": "Voice Bridge — Claude Code calls you when it's stuck"
     }
   ]
