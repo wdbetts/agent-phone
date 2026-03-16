@@ -1,0 +1,16 @@
+{
+  "name": "agent-phone",
+  "owner": {
+    "name": "wdbetts"
+  },
+  "metadata": {
+    "description": "Claude Code Voice Bridge — phone calls and SMS via Twilio"
+  },
+  "plugins": [
+    {
+      "name": "agent-phone",
+      "source": ".",
+      "description": "Voice Bridge — Claude Code calls you when it's stuck"
+    }
+  ]
+}
